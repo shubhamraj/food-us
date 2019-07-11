@@ -24,7 +24,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/style.css"
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
@@ -41,7 +42,6 @@
               "src/assets/js/bootstrap-datepicker.js",
               "src/assets/js/jquery.timepicker.min.js",
               "src/assets/js/scrollax.min.js",
-              "src/assets/js/google-map.js",
               "src/assets/js/main.js"
             ]
           },
