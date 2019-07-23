@@ -3,8 +3,10 @@
     border: 1px solid;
 }
 
-.container-fluid {padding:20px;  padding-left: 20%; border: 2px solid cornsilk; margin: 20px; width: auto;}
-.container{padding:50px;   }
+.container-fluid {padding:20px;  padding-left: 20%;
+     /* border: 2px solid cornsilk;  */
+     margin: 20px; width: auto;}
+.container{padding:5px;   }
 #title{font-family: 'Lobster', cursive;;}
 
 .qty .count-a  {

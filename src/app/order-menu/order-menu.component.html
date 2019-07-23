@@ -13,15 +13,26 @@
           </div>
               
               <div class="container-fluid">
+
                 <div class="container">
                     <hr>
                     <div class="row">
-                      <div class="col-md-5">
-                        <select class="browser-default custom-select" style="margin-top: 40px">
+                      <div class="col-md-3">
+
+                          <select class="browser-default custom-select" style="margin-top: 40px">
+                              <option selected>Select Vendor</option>
+                              <option value="1">Vendor 1</option>
+                              <option value="2">Vendor 2</option>
+                              <option value="2">Vendor 3</option>
+                              <option value="2">Vendor 4</option>
+                              <option value="2">Vendor 5</option>
+                            </select>
+                        
+                          <select class="browser-default custom-select" style="margin-top: 40px">
                             <option selected>Select Menu</option>
                             <option value="1">Full Meal</option>
-                            <option value="2">Diet Meal</option>
-                        </select>
+                            <option value="2">Meal</option>
+                          </select>
 
                         <select class="browser-default custom-select" style="margin-top: 40px">
                             <option selected>Extra Items</option>
@@ -37,6 +48,14 @@
                       </div>
 
                       <div class="col-md-5">
+
+                          <!-- <div class="qty mt-5"> -->
+                              <!-- <span class="minus-a bg-dark">-</span> -->
+                              <input type="number" value="500" min="0" max="1000" step="10"/>
+                              <!-- <span class="plus-a bg-dark">+</span> -->
+                            <!-- </div> -->
+
+
                         <div class="qty mt-5">
                           <span class="minus-a bg-dark">-</span>
                             <input type="number" class="count-a" name="qty" value="1">
@@ -59,14 +78,10 @@
 
                  
                 </div>
+
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-5">
-                            <button type="button" class="btn btn-success" style="width: 200px">Submit</button>
-                        </div>
-                        <div class="col-md-3">
-                            <button type="button" class="btn btn-danger" style="width: 200px">Cancel</button>
-                        </div>
+                      
                     </div>
                 </div>
                
