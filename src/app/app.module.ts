@@ -9,13 +9,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderMenuComponent } from './order-menu/order-menu.component';
 import { NgDatepickerModule } from 'ng2-datepicker';
 import { FormsModule } from '@angular/forms';
+import { AddMenuComponent } from './add-menu/add-menu.component';
 // import { DatePickerModule } from 'angular-material-datepicker';
 @NgModule({
   declarations: [
     AppComponent,
     MyAccountComponent,
     DashboardComponent,
-    OrderMenuComponent
+    OrderMenuComponent,
+    AddMenuComponent
   ],
   imports: [
     BrowserModule,
