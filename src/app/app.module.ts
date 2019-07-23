@@ -9,7 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderMenuComponent } from './order-menu/order-menu.component';
 import { NgDatepickerModule } from 'ng2-datepicker';
 import { FormsModule } from '@angular/forms';
-
+// import { DatePickerModule } from 'angular-material-datepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     NgDatepickerModule,
     FormsModule,
+    
     
   ],
   providers: [],

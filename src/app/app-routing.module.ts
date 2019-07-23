@@ -7,6 +7,7 @@ import { OrderMenuComponent } from './order-menu/order-menu.component';
 const routes: Routes = [
   { path: "", redirectTo: "dashboard", pathMatch: "full"},
   {path:'dashboard',component:DashboardComponent},
+  // {path:'dashboard',component:DashboardComponent, loadChildren: 'app/dashboard/dashboard.module#DashboardModule'},
   {path:'my-account',component:MyAccountComponent},
   {path:'order-menu',component:OrderMenuComponent},
 ];

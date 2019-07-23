@@ -5,7 +5,7 @@
                   <div class="columns is-multiline">
                     <div class="column is-6 is-offset-3">
                       <div class="datepicker-container "  >
-                        <ng-datepicker   [(ngModel)]="TodayDate"     [options]="options"  ></ng-datepicker>
+                        <ng-datepicker   [(ngModel)]="TodayDate"       ></ng-datepicker>
                       </div>
                     </div>
                   </div>
@@ -29,13 +29,36 @@
                             </select>
                         
                           <select class="browser-default custom-select" style="margin-top: 40px">
+                      <div class="col-md-5">
+                          <select class="browser-default custom-select" style="margin-top: 40px">
+                              <option selected>Select City</option>
+                              <option value="1">Charlotte</option>
+                              <option value="2">Raleigh</option>
+                              <option value="1">Greensboro</option>
+                              <option value="2">Durham</option>
+                              <option value="1">Winston-Salem</option>
+                              <option value="2">Fayetteville</option>
+                          </select>
+
+                          <select class="browser-default custom-select" style="margin-top: 40px">
+                              <option selected>Select Vendor</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="1">3</option>
+                              <option value="2">4</option>
+                          </select>
+
+
+                        <select class="browser-default custom-select" style="margin-top: 40px">
                             <option selected>Select Menu</option>
                             <option value="1">Full Meal</option>
                             <option value="2">Meal</option>
                           </select>
 
-                        <select class="browser-default custom-select" style="margin-top: 40px">
-                            <option selected>Extra Items</option>
+                        <span style="float: left;margin: 5px;font-size: 12px;color: #337ab7; text-decoration: underline;">whats..?</span>
+
+                        <select class="browser-default custom-select" style="margin-top: 20px">
+                            <option selected>Extras</option>
                             <option value="1">Chapati</option>
                             <option value="2">Rotu</option>
                         </select>
@@ -47,15 +70,7 @@
                         </select>
                       </div>
 
-                      <div class="col-md-5">
-
-                          <!-- <div class="qty mt-5"> -->
-                              <!-- <span class="minus-a bg-dark">-</span> -->
-                              <input type="number" value="500" min="0" max="1000" step="10"/>
-                              <!-- <span class="plus-a bg-dark">+</span> -->
-                            <!-- </div> -->
-
-
+                      <div class="col-md-5" style="margin-top: 160px;">
                         <div class="qty mt-5">
                           <span class="minus-a bg-dark">-</span>
                             <input type="number" class="count-a" name="qty" value="1">
@@ -73,17 +88,18 @@
                               <input type="number" class="count-c" name="qty" value="1">
                             <span class="plus-c bg-dark">+</span>
                           </div>
+
+                     
                       </div>
                     </div>
 
                  
                 </div>
-
-                <div class="container">
+                <div class="container" style="padding: 30px;">
                     <div class="row">
                       
                     </div>
                 </div>
                
-              </div>
+              </div> 
     </div>

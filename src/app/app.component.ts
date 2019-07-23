@@ -16,6 +16,7 @@ export class AppComponent {
 
   ngOnInit() {
     // this.onHome('Home');
+    console.log('hi');
     this.selectedMenu ='Home';
   }
 
