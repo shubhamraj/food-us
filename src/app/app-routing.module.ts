@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderMenuComponent } from './order-menu/order-menu.component';
 import { CartMenuComponent } from './cart-menu/cart-menu.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AddMenuComponent } from './add-menu/add-menu.component';
 
 const routes: Routes = [
   // { path: "", redirectTo: "dashboard", pathMatch: "full"},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'order-menu',component:OrderMenuComponent},
   {path:'cart-menu',component:CartMenuComponent},
   {path:'checkout',component:CheckoutComponent},
+  {path:'add-menu',component:AddMenuComponent},
 ];
 
 @NgModule({

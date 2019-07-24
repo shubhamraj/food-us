@@ -11,6 +11,7 @@ import { NgDatepickerModule } from 'ng2-datepicker';
 import { FormsModule } from '@angular/forms';
 import { CartMenuComponent } from './cart-menu/cart-menu.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AddMenuComponent } from './add-menu/add-menu.component';
 // import { DatePickerModule } from 'angular-material-datepicker';
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     DashboardComponent,
     OrderMenuComponent,
     CartMenuComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AddMenuComponent
   ],
   imports: [
     BrowserModule,
