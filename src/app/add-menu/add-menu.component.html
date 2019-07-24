@@ -10,6 +10,20 @@
               <tr >
                 <td>
                         <div class="col-md-8">
+
+                            <div class="filter-sec date"  style="margin-top: 20px;">
+                                <!-- <div class="container"> -->
+                                  <div class="columns is-multiline">
+                                    <div class="column is-6 is-offset-3">
+                                      <div class="datepicker-container "  >
+                                        <ng-datepicker style="width: 150px;"  [(ngModel)]="TodayDate"       ></ng-datepicker>
+                                      </div>
+                                    </div>
+                                  </div>
+                                <!-- </div> -->
+                              </div>
+
+
                                 <select class="browser-default custom-select" style="margin-top: 40px">
                                     <option selected>Select City</option>
                                     <option value="1">Charlotte</option>
@@ -48,9 +62,33 @@
                                   <option value="1">etc 1</option>
                                   <option value="2">etc 2</option>
                               </select>
-                            </div>
+                        </div>
+                        
+                  
                 </td>
-                <td></td>
+                <td>
+                  <div class="col-md" style="margin-top: 210px;">
+                    <div class="qty mt-5">
+                      <span class="minus-a bg-dark">-</span>
+                        <input type="number" class="count-a" name="qty" value="1">
+                      <span class="plus-a bg-dark">+</span>
+                    </div>
+                    
+                    <div class="qty mt-5">
+                      <span class="minus-b bg-dark">-</span>
+                        <input type="number" class="count-b" name="qty" value="1">
+                      <span class="plus-b bg-dark">+</span>
+                    </div>
+
+                    <div class="qty mt-5">
+                        <span class="minus-c bg-dark">-</span>
+                          <input type="number" class="count-c" name="qty" value="1">
+                        <span class="plus-c bg-dark">+</span>
+                      </div>
+
+                
+                  </div>
+                </td>
                
                 <td>
                       
@@ -107,7 +145,7 @@
                 <td>Raleigh</td>
                 <td>Full</td>
                 <td>Chapti</td>
-                <td><input type="number" name="quantity" min="1" max="5"><br></td>
+                <td><input type="number" value="1" name="quantity" min="1" max="5" style="  border: solid 1px;width: 40%;"> <br></td>
                 <td>$35.00</td>
               </tr>
             </tbody>

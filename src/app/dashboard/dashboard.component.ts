@@ -18,7 +18,9 @@ export class DashboardComponent implements OnInit {
   }
 
   onOrderMenu(){
-    this.router.navigate(['order-menu']);
+    // this.router.navigate(['order-menu']);
+
+    this.router.navigate(['add-menu']);
    
   }
 
