@@ -9,13 +9,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderMenuComponent } from './order-menu/order-menu.component';
 import { NgDatepickerModule } from 'ng2-datepicker';
 import { FormsModule } from '@angular/forms';
+import { CartMenuComponent } from './cart-menu/cart-menu.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 // import { DatePickerModule } from 'angular-material-datepicker';
 @NgModule({
   declarations: [
     AppComponent,
     MyAccountComponent,
     DashboardComponent,
-    OrderMenuComponent
+    OrderMenuComponent,
+    CartMenuComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
