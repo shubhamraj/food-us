@@ -1,114 +1,152 @@
-<div class="container" >
-  
-      
-        <div class="row">
-          <div class="col-sm-6 mb-3 mb-md-0">
-            <div class="card">
-              <div class="card-body">
-                
-
-                  <div class="filter-sec date"  >
-                        <div class="columns is-multiline">
-                          <div class="column is-2 is-offset-3">
-                            <div class="datepicker-container "  >
-                              <ng-datepicker   [(ngModel)]="TodayDate"       ></ng-datepicker>
+<div class="col-md-6">
+          <h2>Order-Menu</h2>
+          <table class="table table-hover" style="background-color: #fff">
+            <thead>
+          
+            </thead>
+            <tbody>
+              <tr >
+                <td>
+                  <div class="col-md-8">
+                      <div class="filter-sec date"  style="margin-top: 20px;">
+                            <div class="columns is-multiline">
+                              <div class="column is-6 is-offset-3">
+                                <div class="datepicker-container "  >
+                                  <ng-datepicker style="width: 150px;"  [(ngModel)]="TodayDate"></ng-datepicker>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
+                      </div>
+
+                      <select class="browser-default custom-select"   [(ngModel)]="City"  style="margin-top: 40px">
+                          <option [value]="city" selected>Select City</option>
+                          <option value="Charlotte">Charlotte</option>
+                          <option value="Raleigh">Raleigh</option>
+                          <option value="Greensboro">Greensboro</option>
+                          <option value="Durham">Durham</option>
+                          <option value="Winston-Salem">Winston-Salem</option>
+                          <option value="Fayetteville">Fayetteville</option>
+                      </select>
+
+                      <select class="browser-default custom-select"  [(ngModel)]="Vendor" style="margin-top: 40px">
+                          <option [value]="SelectVendor" selected>Select Vendor</option>
+                          <option value="v1">1</option>
+                          <option value="v2">2</option>
+                          <option value="v3">3</option>
+                          <option value="v4">4</option>
+                      </select>
+
+                    <select class="browser-default custom-select"  [(ngModel)]="MainMenu" style="margin-top: 40px">
+                        <option [value]="SelectMenu" selected>Select Menu</option>
+                        <option value="full">Full Meal</option>
+                        <option value="meal">Meal</option>
+                      </select>
+
+                    <span href="#" data-toggle="tooltip" data-placement="bottom"   title="menu- paneer, chapati, dal" >whats in it?</span>
+                    <select class="browser-default custom-select"  [(ngModel)]="ExtraMenu" style="margin-top: 20px">
+                        <option [value]='Extras' selected>Extras</option>
+                        <option [value]="1">Chapati</option>
+                        <option [value]="2">Roti</option>
+                    </select>
+
+                    <select class="browser-default custom-select"  [(ngModel)]="SidesMenu" style="margin-top: 40px">
+                        <option [value]="Sides" selected>Sides</option>
+                        <option value="etc1">etc 1</option>
+                        <option value="etc2">etc 2</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md" style="margin-top: 210px;">
+                    <div class="qty mt-5">
+                      <span class="minus-a bg-dark">-</span>
+                        <input type="number" class="count-a" name="qty" value="1">
+                      <span class="plus-a bg-dark">+</span>
+                    </div>
+                    
+                    <div class="qty mt-5">
+                      <span class="minus-b bg-dark">-</span>
+                        <input type="number" class="count-b" name="qty" value="1">
+                      <span class="plus-b bg-dark">+</span>
                     </div>
 
-
-                      <select class="browser-default custom-select" style="margin-top: 40px">
-                          <option selected>Select City</option>
-                          <option value="1">Charlotte</option>
-                          <option value="2">Raleigh</option>
-                          <option value="1">Greensboro</option>
-                          <option value="2">Durham</option>
-                          <option value="1">Winston-Salem</option>
-                          <option value="2">Fayetteville</option>
-                      </select>
-
-                      <select class="browser-default custom-select" style="margin-top: 40px">
-                          <option selected>Select Vendor</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="1">3</option>
-                          <option value="2">4</option>
-                      </select>
-
-
-                    <select class="browser-default custom-select" style="margin-top: 40px">
-                        <option selected>Select Menu</option>
-                        <option value="1">Full Meal</option>
-                        <option value="2">Meal</option>
-                      </select>
-
-                    <span style="float: left;margin: 5px;font-size: 12px;color: #337ab7; text-decoration: underline;">whats..?</span>
-
-                    <select class="browser-default custom-select" style="margin-top: 20px">
-                        <option selected>Extras</option>
-                        <option value="1">Chapati</option>
-                        <option value="2">Rotu</option>
-                    </select>
-
-                    <select class="browser-default custom-select" style="margin-top: 40px">
-                        <option selected>Extra Menu</option>
-                        <option value="1">etc 1</option>
-                        <option value="2">etc 2</option>
-                    </select>
-
-
-                      <div class="qty mt-5">
-                        <span class="minus-a bg-dark">-</span>
-                          <input type="number" class="count-a" name="qty" value="1">
-                        <span class="plus-a bg-dark">+</span>
+                    <div class="qty mt-5">
+                        <span class="minus-c bg-dark">-</span>
+                          <input type="number" class="count-c" name="qty" value="1">
+                        <span class="plus-c bg-dark">+</span>
                       </div>
-                      
-                      <div class="qty mt-5">
-                        <span class="minus-b bg-dark">-</span>
-                          <input type="number" class="count-b" name="qty" value="1">
-                        <span class="plus-b bg-dark">+</span>
-                      </div>
-  
-                      <div class="qty mt-5">
-                          <span class="minus-c bg-dark">-</span>
-                            <input type="number" class="count-c" name="qty" value="1">
-                          <span class="plus-c bg-dark">+</span>
-                        </div>
-  
-                  
-              
-            </div>
-          </div>
-        
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#!" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
+                  </div>
+                </td>
+                <td>   
+                </td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button  class="btn btn-success" (click)="AddCart()">Add Cart</button>
+
+         
+
         </div>
 
-</div>
+        <div class="modal" tabindex="-1" role="dialog" id="myModal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                            <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>Checkout</b></span></h4>
+                            <p><a href="#"> 1</a> <span class="price">$15</span></p>
+                            <p><a href="#"> 2</a> <span class="price">$5</span></p>
 
+                            <hr>
+                            <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" style="float: left;">Submit</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+        <div class="col-md-6">
+          <h2>Cart</h2>
+          <table class="table table-hover" style="background-color: #fff;height: 410px">
+            <thead>
+              <th>City</th>
+              <th>Meal Type</th>
+              <th>Extras</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </thead>
+            <tbody id="ok">
+              <tr  let *ngFor="let list of CartList">
+                <!-- <td>Raleigh</td>
+                <td>Full</td>
+                <td>Chapti</td>
+                <td><input type="number" value="1" name="quantity" min="1" max="5" style="  border: solid 1px;width: 40%;"> <br></td>
+                <td>$35.00</td> -->
+                <td style="height: 10px;">{{list.City}}</td>
+                <td >{{list.MealType}}</td>
+                <td>{{list.Extras}}</td>
+                <td> <input type="number" name="quantity" min="1" max="5" style="  border: solid 1px;width: 40%;"></td>
+                <td >{{list.Price}}</td>
 
-
-
-
-
-
-                <!-- <div class="container">
-                <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-                <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-                <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-                <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-                <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-                <hr>
-                <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
-              </div> -->
-
-                <!-- Modal -->
-  
+              </tr>
+            </tbody>
+          </table>
+          <span class="text-center" ng-show="myItems.length == 0">
+           
+          </span>
+          <div class="clearfix"></div>
+          <span class="pull-right alert alert-success">Total Price: $ 00.00</span>
+          <button  class="pull-left alert alert-danger" data-toggle="modal" data-target="#myModal">Checkout</button>
+        </div>  
+        
+        
