@@ -244,9 +244,9 @@ table thead tr th {
 }
 
 
-div {
+/* div {
   text-align: center;
-}
+} */
 .minus:hover{
   background-color: #717fe0 !important;
 }
