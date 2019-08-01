@@ -19,13 +19,9 @@ export class OrderMenuComponent implements OnInit {
 
   ngOnInit() {
 
-    $(document).ready(function() {
-      $('.mdb-select').materialSelect();
-      });
 
       
     this.TodayDate = new Date();
-    this.QunitityJs();
 
   }
 
