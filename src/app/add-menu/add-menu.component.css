@@ -1,6 +1,11 @@
 table thead tr th {
     color: #B87333;
   }
+
+  td{
+    height: 10px;
+  }
+
   
   span.text-center {
     display: block;
@@ -244,9 +249,9 @@ table thead tr th {
 }
 
 
-div {
+/* div {
   text-align: center;
-}
+} */
 .minus:hover{
   background-color: #717fe0 !important;
 }
@@ -271,4 +276,11 @@ input::-webkit-inner-spin-button {
 input:disabled{
   background-color:white;
 }
+
+
+
+
+
+/**/
+
     

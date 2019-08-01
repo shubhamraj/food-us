@@ -7,11 +7,31 @@ import * as $ from 'jquery';
 })
 export class AddMenuComponent implements OnInit {
   TodayDate:any;
+  CartList:any=[];
+  City:any;
+  Vendor:any;
+  MainMenu:any;
+  ExtraMenu:any;
+  SidesMenu:any;
+  Qunitity:any;
+  Price:any;
+
   constructor() { }
 
   ngOnInit() {
     this.TodayDate = new Date();
     this.QunitityJs();
+  }
+
+  AddCart(){
+    this.Qunitity=1;
+    this.Price=35;
+    var list = {"City":this.City,"MealType":this.MainMenu,"Extras":this.ExtraMenu,"Qunitity":this.Qunitity, "Price":this.Price }
+    this.CartList.push(list);
+
+    console.log(this.CartList)
+  
+
   }
 
   QunitityJs(){
@@ -75,6 +95,7 @@ export class AddMenuComponent implements OnInit {
             }
           });
 
+          // $('[data-toggle="tooltip"]').tooltip();
 
    });
   }
