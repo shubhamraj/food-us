@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-menu',
   templateUrl: './add-menu.component.html',
@@ -16,7 +17,7 @@ export class AddMenuComponent implements OnInit {
   Qunitity:any;
   Price:any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.TodayDate = new Date();
@@ -29,9 +30,16 @@ export class AddMenuComponent implements OnInit {
     var list = {"City":this.City,"MealType":this.MainMenu,"Extras":this.ExtraMenu,"Qunitity":this.Qunitity, "Price":this.Price }
     this.CartList.push(list);
 
+
     console.log(this.CartList)
   
 
+  }
+
+  onCheckoutSubmit(){
+   
+
+    this.router.navigate(['checkout']);
   }
 
   QunitityJs(){

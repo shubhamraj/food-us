@@ -43,6 +43,8 @@
                       </select>
 
                     <span href="#" data-toggle="tooltip" data-placement="bottom"   title="menu- paneer, chapati, dal" >whats in it?</span>
+
+
                     <select class="browser-default custom-select"  [(ngModel)]="ExtraMenu" style="margin-top: 20px">
                         <option [value]='Extras' selected>Extras</option>
                         <option [value]="1">Chapati</option>
@@ -108,7 +110,7 @@
                             <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" style="float: left;">Submit</button>
+                      <button type="button" class="btn btn-primary" style="float: left;"  (click)="onCheckoutSubmit()" data-dismiss="modal">Submit</button>
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                   </div>
