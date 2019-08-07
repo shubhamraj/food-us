@@ -10,24 +10,37 @@ import * as frLocale from 'date-fns/locale/fr';
 })
 export class OrderMenuComponent implements OnInit {
   TodayDate:any
+  CartList:any=[];
+  City:any;
+  Vendor:any;
+  MealType:any;
+  ExtraMenu:any;
+  SidesMenu:any;
+  MQunitity:any;
+  SidesQuantity:any;
+  ExtrasQuantity:any;
+  TotalPrice:any;
+  constructor() { }
 
-
-  
-  constructor() { 
-
-  }
-
-  ngOnInit() {
-
-    $(document).ready(function() {
-      $('.mdb-select').materialSelect();
-      });
-
-      
+  ngOnInit() { 
     this.TodayDate = new Date();
-    this.QunitityJs();
+  }
+
+  AddCart(){
+    this.MQunitity=1;
+    this.TotalPrice=35;
+    var list = {"City":this.City,"MealType":this.MealType,"Qunitity":this.MQunitity, "TotalPrice":this.TotalPrice }
+    this.CartList.push(list);
+    console.log(this.CartList);
 
   }
+
+  RemoveItems(index){
+
+    console.log(index);
+  }
+
+
 
   QunitityJs(){
     $(document).ready(function(){
