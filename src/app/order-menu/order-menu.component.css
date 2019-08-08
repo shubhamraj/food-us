@@ -6,6 +6,15 @@
 /* .container{padding:50px;   } */
 #title{font-family: 'Lobster', cursive;;}
 
+.container{
+  border: 1px solid white;
+  width: 640px; 
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  
+}
 
 #title{font-family: 'Lobster', cursive;;}
 
@@ -246,7 +255,7 @@
     left: 0px;
     width: 49%;
    border-right: 1px #aaa;
-   height:75%;
+   height:auto;
     background-color: #343a40;
    margin:10px;
    padding: 50px;
@@ -258,10 +267,12 @@
     position: absolute;
     right: 0px;
     width: 49%;
-    height:75%;
+    height:auto;
     background-color: #343a40;
     margin:10px;
+    padding: 50px;
     /* border: 1px #fff solid; */
+    height: calc(100vh - 435px);
   }
 
 
@@ -284,7 +295,7 @@
     margin-bottom: 3rem;
   }
   
-button {
+/* button {
     -webkit-appearance: none;
     background-color: transparent;
     border: none;
@@ -306,7 +317,7 @@ button:before,
   
  button.plus:after {
     transform: translate(-50%, -50%) rotate(90deg);
-  }
+  } */
   
  input[type=number] {
     text-align: center;
@@ -318,21 +329,21 @@ button:before,
     border-radius: .25rem;
   }
   
- button {
+ /* button {
     width: 2.6rem;
     height: .7rem;
   }
   
   button.minus {
     padding-left: 10px;
-  }
+  } */
   
-  button:before,
+  /* button:before,
  button:after {
     width: .7rem;
     background-color: #495057;
   }
-  
+   */
    input[type=number] {
     max-width: 4rem;
     padding: .5rem;
@@ -407,12 +418,41 @@ button:before,
 
   .my-custom-scrollbar {
     position: relative;
-    height: 75%;
+    height: 100%;
     overflow: auto;
     width: 100%;
     
     }
     .table-wrapper-scroll-y {
     display: block;
+    }
+
+
+    button{
+      height: 30px;
+      padding: 0 15px;
+      font-size: 13px;
+      font-weight: 600;
+      outline: none;
+    }
+    
+    .clear{
+      background-color: #fff;
+      color: #d9534f;
+      border: 1px solid #d9534f;
+    }
+    .clear:hover{
+      background-color: #d9534f;
+      color: #fff;
+    }
+
+    .add{
+      background-color: #fff;
+      color: #337ab7;
+      border: 1px solid #337ab7;
+    }
+    .add:hover{
+      background-color: #337ab7;
+      color: #fff;
     }
 

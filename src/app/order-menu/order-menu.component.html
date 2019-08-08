@@ -1,9 +1,10 @@
-<!-- <div class="container-fluid">
-<div class="container"> -->
+<!-- <div class="container-fluid">-->
+<!-- <div class="container">  -->
 
 
   <div class="left-half">
-      <select class="browser-default custom-select custom-select-sm" [(ngModel)]="City">
+    <div class="container">
+      <select class="browser-default custom-select custom-select-md" style="margin-top: 30px" [(ngModel)]="City">
           <option selected disabled [value]="City">Select City</option>
           <option>Charlotte</option>
           <option>Raleigh</option>
@@ -13,7 +14,7 @@
           <option>Fayetteville</option>
       </select>
       <br>
-      <select class="browser-default custom-select custom-select-sm" style="margin-top: 30px" [(ngModel)]="Vendor" >
+      <select class="browser-default custom-select custom-select-md"  style="margin-top: 30px"  [(ngModel)]="Vendor" >
           <option selected disabled [value]="SelectVendor">Select Vendor</option>
           <option>1</option>
           <option>2</option>
@@ -21,10 +22,10 @@
           <option>4</option>
       </select>
 
-  <div class="row" style="margin-top: 30px;height: 50px;"  >
+  <div class="row"  >
 
     <div class="col-lg-8">
-        <select class="col-sm browser-default custom-select custom-select-sm" [(ngModel)]="MealType" >
+        <select class="col-sm browser-default custom-select custom-select-md" style="margin-top: 30px" [(ngModel)]="MealType" >
             <option  disabled selected [value]="Menu">Select Menu</option>
             <option >Full Meal</option>
             <option >Meal</option>
@@ -32,60 +33,60 @@
           <span ><p  style="color:steelblue">whats in it?</p> </span>
     </div>
   
-    <div class="col-sm">
+    <div class="col-md"  style="margin-top: 30px">
         <span >
-            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+            <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button> -->
             <input class="quantity" min="0" name="quantity"  type="number" [(ngModel)]="MQunitity">
-            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+            <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> -->
           </span> 
     </div>
 
   </div>
 
   
-  <div class="row" style="margin-top: 30px;height: 50px;" >
+  <div class="row"  >
 
       <div class="col-lg-8">
-          <select class="col-sm browser-default custom-select custom-select-sm" [(ngModel)]="Extras" >
+          <select class="col-sm browser-default custom-select custom-select-md"   [(ngModel)]="ExtraMenu" >
               <option selected disabled [value]="Extras">Extras</option>
-              <option value="1">Chapati</option>
-              <option value="2">Rotu</option>
+              <option>Chapati</option>
+              <option>Rotu</option>
             </select>
       </div>
-      <div class="col-sm">
-          <span >
-              <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-              <input class="quantity" min="0" name="quantity" value="1" type="number" [(ngModel)]="ExtrasQuantity">
-              <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-            </span> 
+      <div class="col-md" >
+          <!-- <span > -->
+              <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button> -->
+              <input class="quantity" min="0" name="quantity"  type="number" [(ngModel)]="ExtrasQuantity">
+              <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> -->
+            <!-- </span>  -->
       </div>
 
   </div>
 
-    <div class="row" style="margin-top: 30px;" >
+    <div class="row">
 
       
       <div class="col-lg-8">
-          <select class="col-lg browser-default custom-select custom-select-sm" [(ngModel)]="SidesMenu" >
+          <select class="col-lg browser-default custom-select custom-select-md" style="margin-top: 30px"   [(ngModel)]="SidesMenu" >
               <option selected  disabled [value]="Sides">Sides</option>
-              <option value="1">etc 1</option>
-              <option value="2">etc 2</option>
+              <option >etc 1</option>
+              <option >etc 2</option>
             </select>
       </div>
-      <div class="col-sm">
-          <span >
-              <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-              <input class="quantity" min="0" name="quantity" value="1" type="number" [(ngModel)]="SidesQuantity">
-              <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-            </span> 
+      <div class="col-md"  style="margin-top: 30px">
+          <!-- <span > -->
+              <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button> -->
+              <input class="quantity" min="0" name="quantity"  type="number" [(ngModel)]="SidesQuantity">
+              <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> -->
+            <!-- </span>  -->
       </div>
 
   </div>
 
-  <div class="col mb-2" style="margin-top: 30px">
-      <div class="row">
+  <div class="col mb-2">
+      <div class="row"  style="margin-top: 30px">
      
-        <div class="btn btn-sm btn-block btn-warning  text-uppercase" (click)="AddCart()">Add To Cart</div>
+        <div class="btn btn-md btn-block btn-warning  text-uppercase" (click)="AddCart()">Add To Cart</div>
         
       </div>
   </div>
@@ -93,37 +94,50 @@
     
     
   
-  </div>
+  
+    </div>
+</div>  
 
 
   <div class="right-half">
 
-
-  <div class="container-menu" style="border: 1px solid black;margin: 10px" >
-        <table id="customers" class="table-wrapper-scroll-y my-custom-scrollbar" style="">
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+          <table class="table table-dark" >
+              <thead class="thead-dark">
                 <tr>
-                    <th>Sr.No</th>
-                    <th>City</th>
-                    <th>Meal Type</th>
-                    <th>Meal Quantity</th>
-                    <th>Total Price</th>
-                    <th>Action</th>
+                  <th scope="col">#</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Meal Type</th>
+                  <th scope="col">Meal Quantity</th>
+                  <th scope="col">Extras</th>
+                  <th scope="col">Extras Quantity</th>
+                  <th scope="col">Sides</th>
+                  <th scope="col">Total Price</th>
+                  <th scope="col">Action</th>
                 </tr>
-                <tr *ngFor="let list of CartList;let i =index" >
-                    <td>{{i+1}}</td>
-                    <td>{{list.City}}</td>
-                    <td>{{list.MealType}}</td>
-                    <td><input type="number" name="quantity" min="1" max="5" [(ngModel)]="list.Qunitity" style="border: solid 1px;width: 40%;"></td>
-                    <td>{{list.TotalPrice}}</td>
-                    <td class="icon"><img src="" (click)="RemoveItems(i)"></td>
-                </tr>
-                
-        </table>
-             
-      </div>
+              </thead>
+              <tbody>
+                  
+                  <tr *ngFor="let list of CartList;let i =index">
+                      <td>{{i+1}}</td>
+                      <td>{{list.City}}</td>
+                      <td>{{list.MealType}}</td>
+                      <td><input type="number" name="quantity" min="1" max="5" [(ngModel)]="list.Qunitity" style="border: solid 1px;width: 40%;"></td>
+                      <td>{{list.ExtraMenu}}</td>
+                      <td><input type="number" name="quantity" min="1" max="5" [(ngModel)]="list.ExtrasQuantity" style="border: solid 1px;width: 40%;"></td>
+                      <td>{{list.SidesMenu}}</td>
+                      <td>{{list.TotalPrice}}</td>
+                      <td>
+                        <!-- <button type="button"  data-toggle="modal" data-target="#edit" data-uid="2" class="update btn btn-success btn-sm"><span class="glyphicon glyphicon-pencil"></span></button> -->
+                      <!-- <button type="button"  style="margin-left: 10px" data-toggle="modal" data-target="#delete" data-uid="2" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button> -->
+                      <i class="fa fa-pencil fa-lg" aria-hidden="true" style="color: darkgoldenrod" ></i>                    
+                        <i class="fa fa-trash fa-lg" aria-hidden="true" style="margin-left: 20px; color: brown"></i>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+            </div>
 
-     
-      
   </div>
 
   <div id="DemoModal" class="modal fade" style="vertical-align: middle;"> <!-- class modal and fade -->
@@ -132,5 +146,5 @@
 </div>
 
 
-</div>
-</div>
+<!-- </div> -->
+<!-- </div> -->

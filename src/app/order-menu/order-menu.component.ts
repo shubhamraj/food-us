@@ -16,9 +16,9 @@ export class OrderMenuComponent implements OnInit {
   MealType:any;
   ExtraMenu:any;
   SidesMenu:any;
-  MQunitity:any;
-  SidesQuantity:any;
-  ExtrasQuantity:any;
+  MQunitity:any=1;
+  SidesQuantity:any=1;
+  ExtrasQuantity:any=1;
   TotalPrice:any;
   constructor() { }
 
@@ -27,11 +27,19 @@ export class OrderMenuComponent implements OnInit {
   }
 
   AddCart(){
-    this.MQunitity=1;
+ 
     this.TotalPrice=35;
-    var list = {"City":this.City,"MealType":this.MealType,"Qunitity":this.MQunitity, "TotalPrice":this.TotalPrice }
+    var list = {"City":this.City,"MealType":this.MealType,"Qunitity":this.MQunitity,"ExtraMenu":this.ExtraMenu,"ExtrasQuantity":this.ExtrasQuantity,"SidesMenu":this.SidesMenu,"TotalPrice":this.TotalPrice }
     this.CartList.push(list);
     console.log(this.CartList);
+    this.MQunitity = 1;
+    this.SidesQuantity =1;
+    this.ExtrasQuantity = 1;
+    // this.MealType='';
+    // this.Vendor = '';
+    // this.City='';
+    // this.ExtraMenu='';
+    // this.SidesMenu='';
 
   }
 
