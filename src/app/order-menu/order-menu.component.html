@@ -3,103 +3,104 @@
 
 
   <div class="left-half">
+      <select class="browser-default custom-select custom-select-sm" [(ngModel)]="City">
+          <option selected disabled [value]="City">Select City</option>
+          <option>Charlotte</option>
+          <option>Raleigh</option>
+          <option>Greensboro</option>
+          <option>Durham</option>
+          <option>Winston-Salem</option>
+          <option>Fayetteville</option>
+      </select>
+      <br>
+      <select class="browser-default custom-select custom-select-sm" style="margin-top: 30px" [(ngModel)]="Vendor" >
+          <option selected disabled [value]="SelectVendor">Select Vendor</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+      </select>
 
-      <div class="container-menu" style="border: 1px solid black; margin-top: 10%">
-              <select class="browser-default custom-select" style="margin-top: 40px" [(ngModel)]="City">
-                  <option selected disabled [value]="City">Select City</option>
-                  <option>Charlotte</option>
-                  <option>Raleigh</option>
-                  <option>Greensboro</option>
-                  <option>Durham</option>
-                  <option>Winston-Salem</option>
-                  <option>Fayetteville</option>
-              </select>
-              <br>
-              <select class="browser-default custom-select" style="margin-top: 40px" [(ngModel)]="Vendor" >
-                  <option selected disabled [value]="SelectVendor">Select Vendor</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-              </select>
-    
-          <div class="row" style="margin-top: 40px;height: 50px;"  >
+  <div class="row" style="margin-top: 30px;height: 50px;"  >
 
-            <div class="col-lg-8">
-                <select class="col-sm browser-default custom-select" [(ngModel)]="MealType" >
-                    <option  disabled selected [value]="Menu">Select Menu</option>
-                    <option >Full Meal</option>
-                    <option >Meal</option>
-                  </select>
-                  <span ><p  style="color:steelblue">whats in it?</p> </span>
-            </div>
-          
-            <div class="col-sm">
-                <span >
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                    <input class="quantity" min="0" name="quantity"  type="number" [(ngModel)]="MQunitity">
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                  </span> 
-            </div>
-
-          </div>
-
-          
-          <div class="row" style="margin-top: 40px;height: 50px;" >
-
-              <div class="col-lg-8">
-                  <select class="col-sm browser-default custom-select" [(ngModel)]="Extras" >
-                      <option selected disabled [value]="Extras">Extras</option>
-                      <option value="1">Chapati</option>
-                      <option value="2">Rotu</option>
-                    </select>
-              </div>
-              <div class="col-sm">
-                  <span >
-                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                      <input class="quantity" min="0" name="quantity" value="1" type="number" [(ngModel)]="ExtrasQuantity">
-                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                    </span> 
-              </div>
+    <div class="col-lg-8">
+        <select class="col-sm browser-default custom-select custom-select-sm" [(ngModel)]="MealType" >
+            <option  disabled selected [value]="Menu">Select Menu</option>
+            <option >Full Meal</option>
+            <option >Meal</option>
+          </select>
+          <span ><p  style="color:steelblue">whats in it?</p> </span>
+    </div>
   
-          </div>
+    <div class="col-sm">
+        <span >
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+            <input class="quantity" min="0" name="quantity"  type="number" [(ngModel)]="MQunitity">
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+          </span> 
+    </div>
 
-            <div class="row" style="margin-top: 40px;height: 50px;" >
+  </div>
 
-              <div class="col-lg-8">
-                  <select class="col-lg browser-default custom-select" [(ngModel)]="SidesMenu" >
-                      <option selected  disabled [value]="Sides">Sides</option>
-                      <option value="1">etc 1</option>
-                      <option value="2">etc 2</option>
-                    </select>
-              </div>
-              <div class="col-sm">
-                  <span >
-                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                      <input class="quantity" min="0" name="quantity" value="1" type="number" [(ngModel)]="SidesQuantity">
-                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                    </span> 
-              </div>
   
-          </div>
+  <div class="row" style="margin-top: 30px;height: 50px;" >
 
-          <div class="col mb-2" style="margin-top: 40px">
-              <div class="row">
-             
-                <div class="btn btn-lg btn-block btn-warning text-uppercase" (click)="AddCart()">Add To Cart</div>
-                
-              </div>
-          </div>
+      <div class="col-lg-8">
+          <select class="col-sm browser-default custom-select custom-select-sm" [(ngModel)]="Extras" >
+              <option selected disabled [value]="Extras">Extras</option>
+              <option value="1">Chapati</option>
+              <option value="2">Rotu</option>
+            </select>
+      </div>
+      <div class="col-sm">
+          <span >
+              <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+              <input class="quantity" min="0" name="quantity" value="1" type="number" [(ngModel)]="ExtrasQuantity">
+              <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+            </span> 
+      </div>
+
+  </div>
+
+    <div class="row" style="margin-top: 30px;" >
+
+      
+      <div class="col-lg-8">
+          <select class="col-lg browser-default custom-select custom-select-sm" [(ngModel)]="SidesMenu" >
+              <option selected  disabled [value]="Sides">Sides</option>
+              <option value="1">etc 1</option>
+              <option value="2">etc 2</option>
+            </select>
+      </div>
+      <div class="col-sm">
+          <span >
+              <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+              <input class="quantity" min="0" name="quantity" value="1" type="number" [(ngModel)]="SidesQuantity">
+              <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+            </span> 
+      </div>
+
+  </div>
+
+  <div class="col mb-2" style="margin-top: 30px">
+      <div class="row">
+     
+        <div class="btn btn-sm btn-block btn-warning  text-uppercase" (click)="AddCart()">Add To Cart</div>
         
       </div>
+  </div>
+
+    
     
   
   </div>
 
 
   <div class="right-half">
-      <div class="container-menu" style="border: 1px solid black; margin-top: 10%;" >
-        <table id="customers" class="table-wrapper-scroll-y my-custom-scrollbar" style="margin-top: 40px;">
+
+
+  <div class="container-menu" style="border: 1px solid black;margin: 10px" >
+        <table id="customers" class="table-wrapper-scroll-y my-custom-scrollbar" style="">
                 <tr>
                     <th>Sr.No</th>
                     <th>City</th>
@@ -118,19 +119,18 @@
                 </tr>
                 
         </table>
-              <div class="row">
-                <div class="btn btn-lg btn-block btn-success text-uppercase" href="#DemoModal" data-toggle="modal"   style="margin-top: 20px;">Checkout</div>
-              </div>
+             
       </div>
 
-
-      <div id="DemoModal" class="modal fade" style="vertical-align: middle;"> <!-- class modal and fade -->
-         
-            <h1 style="background-color: blanchedalmond">Hello</h1>
-        </div>
+     
       
   </div>
 
-  
-<!-- </div>
-</div> -->
+  <div id="DemoModal" class="modal fade" style="vertical-align: middle;"> <!-- class modal and fade -->
+         
+    <h1 style="background-color: blanchedalmond">Hello</h1>
+</div>
+
+
+</div>
+</div>
