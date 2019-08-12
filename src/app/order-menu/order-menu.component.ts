@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { DatepickerOptions } from 'ng2-datepicker';
 import * as frLocale from 'date-fns/locale/fr';
+import swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-menu',
@@ -20,32 +22,93 @@ export class OrderMenuComponent implements OnInit {
   SidesQuantity:any=1;
   ExtrasQuantity:any=1;
   TotalPrice:any;
-  constructor() { }
+  ExtraMenuprice:any=0;
+  ExtraMenuChapatiPrice:any;
+  ExtraMenuRotiPrice:any;
+  constructor(private router: Router) { }
 
   ngOnInit() { 
+    this.TotalPrice = 35;
+    this.ExtraMenuChapatiPrice =10;
+    this.ExtraMenuRotiPrice = 15;
     this.TodayDate = new Date();
+    if(JSON.parse(localStorage.getItem('CartList')) != null){
+      this.CartList =   JSON.parse(localStorage.getItem('CartList'));
+    }
+   
   }
 
   AddCart(){
  
     this.TotalPrice=35;
-    var list = {"City":this.City,"MealType":this.MealType,"Qunitity":this.MQunitity,"ExtraMenu":this.ExtraMenu,"ExtrasQuantity":this.ExtrasQuantity,"SidesMenu":this.SidesMenu,"TotalPrice":this.TotalPrice }
+    var list = {"City":this.City,"MealType":this.MealType,"MQunitity":this.MQunitity,"ExtraMenu":this.ExtraMenu,"ExtrasQuantity":this.ExtrasQuantity,"SidesMenu":this.SidesMenu,"TotalPrice":this.TotalPrice }
     this.CartList.push(list);
     console.log(this.CartList);
     this.MQunitity = 1;
     this.SidesQuantity =1;
     this.ExtrasQuantity = 1;
-    // this.MealType='';
-    // this.Vendor = '';
-    // this.City='';
-    // this.ExtraMenu='';
-    // this.SidesMenu='';
+    // this.MealType='Select Menu';
+    // this.Vendor = 'SelectVendor';
+    // this.City='City';
+    // this.ExtraMenu='Extras';
+    // this.SidesMenu='Sides';
+    localStorage.setItem('CartList',JSON.stringify(this.CartList));
+  }
+
+  onEditRow(index){
+    console.log(index);
+    var _rowNum = 'row-'+index;
+    $('.'+_rowNum).removeClass('hide-input').addClass('hide-span');
+    // $('.'+_rowNum).tog
+  }
+
+  onSaverow(index){
+    var _rowNum = 'row-'+index;
+    $('.'+_rowNum).removeClass('hide-span').addClass('hide-input');
+  }
+
+  onRemoveItems(index){
+ 
+    swal.fire(
+      {
+      title: "Delete Confirmation",
+      text: "Are You Sure, you want to Delete Order Item ?",
+      type: "warning",
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      showCloseButton: true,
+    })
+    .then((willDelete) => {
+      if(willDelete.value) {
+        this.CartList.splice(index, 1);
+        localStorage.setItem('CartList',JSON.stringify(this.CartList));
+      }
+    });
 
   }
 
-  RemoveItems(index){
+  onMealQuntity(index){
+  
+     this.CartList[index].TotalPrice = this.CartList[index].MQunitity * this.TotalPrice + this.ExtraMenuprice;
+    
+  }
 
-    console.log(index);
+  onExtrasQuntity(index){
+    
+     this.ExtraMenuprice = this.ExtraMenuChapatiPrice * this.CartList[index].ExtrasQuantity-this.ExtraMenuChapatiPrice ;
+     console.log(this.ExtraMenuprice)
+     this.onMealQuntity(index); 
+  }
+
+  onCheckout(){
+
+  }
+
+  onSubmit(){
+     this.router.navigate(['checkout']);
   }
 
 

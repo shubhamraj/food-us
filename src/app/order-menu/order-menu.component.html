@@ -4,7 +4,7 @@
 
   <div class="left-half">
     <div class="container">
-      <select class="browser-default custom-select custom-select-md" style="margin-top: 30px" [(ngModel)]="City">
+      <select class="browser-default custom-select custom-select-md" style="margin-top: 30px" [(ngModel)]="City" required>
           <option selected disabled [value]="City">Select City</option>
           <option>Charlotte</option>
           <option>Raleigh</option>
@@ -14,7 +14,7 @@
           <option>Fayetteville</option>
       </select>
       <br>
-      <select class="browser-default custom-select custom-select-md"  style="margin-top: 30px"  [(ngModel)]="Vendor" >
+      <select class="browser-default custom-select custom-select-md"  style="margin-top: 30px"  [(ngModel)]="Vendor" required >
           <option selected disabled [value]="SelectVendor">Select Vendor</option>
           <option>1</option>
           <option>2</option>
@@ -25,7 +25,7 @@
   <div class="row"  >
 
     <div class="col-lg-8">
-        <select class="col-sm browser-default custom-select custom-select-md" style="margin-top: 30px" [(ngModel)]="MealType" >
+        <select class="col-sm browser-default custom-select custom-select-md" style="margin-top: 30px" [(ngModel)]="MealType" required>
             <option  disabled selected [value]="Menu">Select Menu</option>
             <option >Full Meal</option>
             <option >Meal</option>
@@ -36,7 +36,7 @@
     <div class="col-md"  style="margin-top: 30px">
         <span >
             <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button> -->
-            <input class="quantity" min="0" name="quantity"  type="number" [(ngModel)]="MQunitity">
+            <input class="quantity" min="0" name="quantity"  type="number" [(ngModel)]="MQunitity" >
             <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> -->
           </span> 
     </div>
@@ -47,7 +47,7 @@
   <div class="row"  >
 
       <div class="col-lg-8">
-          <select class="col-sm browser-default custom-select custom-select-md"   [(ngModel)]="ExtraMenu" >
+          <select class="col-sm browser-default custom-select custom-select-md"   [(ngModel)]="ExtraMenu" required>
               <option selected disabled [value]="Extras">Extras</option>
               <option>Chapati</option>
               <option>Rotu</option>
@@ -118,31 +118,97 @@
               </thead>
               <tbody>
                   
-                  <tr *ngFor="let list of CartList;let i =index">
+                  <tr *ngFor="let list of CartList;let i =index" class="row-{{i}} hide-input">
                       <td>{{i+1}}</td>
-                      <td>{{list.City}}</td>
-                      <td>{{list.MealType}}</td>
-                      <td><input type="number" name="quantity" min="1" max="5" [(ngModel)]="list.Qunitity" style="border: solid 1px;width: 40%;"></td>
-                      <td>{{list.ExtraMenu}}</td>
-                      <td><input type="number" name="quantity" min="1" max="5" [(ngModel)]="list.ExtrasQuantity" style="border: solid 1px;width: 40%;"></td>
-                      <td>{{list.SidesMenu}}</td>
-                      <td>{{list.TotalPrice}}</td>
+                      <td>
+                    
+                            <select style="width: 80px;" [(ngModel)]="City" required>
+                                <option selected disabled [value]="City">Select City</option>
+                                <option>Charlotte</option>
+                                <option>Raleigh</option>
+                                <option>Greensboro</option>
+                                <option>Durham</option>
+                                <option>Winston-Salem</option>
+                                <option>Fayetteville</option>
+                            </select>
+
+                       <span> {{list.City}}</span>
+                      
+                      </td>
+                      <td>
+                        <select class="" style="width: 80px;" [(ngModel)]="MealType" required>
+                          <option  disabled selected [value]="Menu">Select Menu</option>
+                          <option >Full Meal</option>
+                          <option >Meal</option>
+                        </select>
+                        <span>{{list.MealType}}</span>
+                      </td>
+                      <td><input type="number" name="quantity" min="1" max="5" [(ngModel)]="list.MQunitity" style="border: solid 1px;width: 40%; margin-left: 20px;" (change)="onMealQuntity(i)"></td>
+                      <td>
+
+                        <select class=""   style="width: 80px;"  [(ngModel)]="ExtraMenu" required>
+                            <option selected disabled [value]="Extras">Extras</option>
+                            <option>Chapati</option>
+                            <option>Rotu</option>
+                        </select>
+                        <span>{{list.ExtraMenu}}</span>
+                      </td>
+                      <td><input type="number" name="quantity" min="1" max="5" [(ngModel)]="list.ExtrasQuantity" style="border: solid 1px;width: 40%;margin-left: 20px;" (change)="onExtrasQuntity(i)"></td>
+                      <td>
+                        <select class=""  style="width: 80px;"  [(ngModel)]="SidesMenu" >
+                            <option selected  disabled [value]="Sides">Sides</option>
+                            <option >etc 1</option>
+                            <option >etc 2</option>
+                        </select>
+                        <span>{{list.SidesMenu}}</span>
+                      </td>
+                      <td>$ {{list.TotalPrice}}</td>
                       <td>
                         <!-- <button type="button"  data-toggle="modal" data-target="#edit" data-uid="2" class="update btn btn-success btn-sm"><span class="glyphicon glyphicon-pencil"></span></button> -->
                       <!-- <button type="button"  style="margin-left: 10px" data-toggle="modal" data-target="#delete" data-uid="2" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button> -->
-                      <i class="fa fa-pencil fa-lg" aria-hidden="true" style="color: darkgoldenrod" ></i>                    
-                        <i class="fa fa-trash fa-lg" aria-hidden="true" style="margin-left: 20px; color: brown"></i>
+                      <i class="fa fa-pencil fa-lg edit" aria-hidden="true" style="color: darkgoldenrod" (click)="onEditRow(i)"></i>         
+                      <i class="fa fa-arrow-circle-o-down fa-lg save" aria-hidden="true" style="color: darkgoldenrod" (click)="onSaverow(i)"></i>              
+                        <i class="fa fa-trash fa-lg" aria-hidden="true" style="margin-left: 20px; color: brown" (click)="onRemoveItems(i)"></i>
                     </td>
                   </tr>
               </tbody>
             </table>
             </div>
+            
+  <div class="col mb-2">
+    <div class="row"  style="margin-top: 30px">
+   
+      <div class="btn btn-md btn-block btn-success  text-uppercase"  data-toggle="modal" data-target="#DemoModal" (click)="onCheckout()">Checkout</div>
+      
+    </div>
+</div>
 
   </div>
 
-  <div id="DemoModal" class="modal fade" style="vertical-align: middle;"> <!-- class modal and fade -->
+  <div id="DemoModal" class="modal" style="vertical-align: middle;"> <!-- class modal and fade -->
          
-    <h1 style="background-color: blanchedalmond">Hello</h1>
+
+        <div class="modal-content" style="margin: 15% 25% 15% 25%;width:50%">
+    
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Modal Heading</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+    
+ 
+          <div class="modal-body">
+            
+                  <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+
+                  <hr>
+                  <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                  <button class="btn btn-info" type="button" data-dismiss="modal" (click)="onSubmit()">Submit</button>
+          </div>
+    
+        
+   
+      </div>
 </div>
 
 
