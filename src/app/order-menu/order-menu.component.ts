@@ -21,14 +21,14 @@ export class OrderMenuComponent implements OnInit {
   MQunitity:any=1;
   SidesQuantity:any=1;
   ExtrasQuantity:any=1;
-  TotalPrice:any;
+  TotalPrice:any=0;
   ExtraMenuprice:any=0;
   ExtraMenuChapatiPrice:any;
   ExtraMenuRotiPrice:any;
   constructor(private router: Router) { }
 
   ngOnInit() { 
-    this.TotalPrice = 35;
+   
     this.ExtraMenuChapatiPrice =10;
     this.ExtraMenuRotiPrice = 15;
     this.TodayDate = new Date();
@@ -41,9 +41,11 @@ export class OrderMenuComponent implements OnInit {
   AddCart(){
  
     this.TotalPrice=35;
-    var list = {"City":this.City,"MealType":this.MealType,"MQunitity":this.MQunitity,"ExtraMenu":this.ExtraMenu,"ExtrasQuantity":this.ExtrasQuantity,"SidesMenu":this.SidesMenu,"TotalPrice":this.TotalPrice }
-    this.CartList.push(list);
-    console.log(this.CartList);
+    var list = {"City":this.City,"MealType":this.MealType,"MQunitity":this.MQunitity,"ExtraMenu":this.ExtraMenu,"ExtrasQuantity":this.ExtrasQuantity,"SidesMenu":this.SidesMenu,"SidesQuantity":this.SidesQuantity,"TotalPrice":this.TotalPrice }
+    
+    console.log(list);
+     this.CartList.push(list);
+    // console.log(this.CartList);
     this.MQunitity = 1;
     this.SidesQuantity =1;
     this.ExtrasQuantity = 1;
@@ -101,6 +103,10 @@ export class OrderMenuComponent implements OnInit {
      this.ExtraMenuprice = this.ExtraMenuChapatiPrice * this.CartList[index].ExtrasQuantity-this.ExtraMenuChapatiPrice ;
      console.log(this.ExtraMenuprice)
      this.onMealQuntity(index); 
+  }
+
+  onSidesQuantity(index){
+
   }
 
   onCheckout(){
