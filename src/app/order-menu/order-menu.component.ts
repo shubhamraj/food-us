@@ -4,6 +4,7 @@ import { DatepickerOptions } from 'ng2-datepicker';
 import * as frLocale from 'date-fns/locale/fr';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-order-menu',
@@ -40,15 +41,45 @@ export class OrderMenuComponent implements OnInit {
 
   AddCart(){
  
-    this.TotalPrice=35;
-    var list = {"City":this.City,"MealType":this.MealType,"MQunitity":this.MQunitity,"ExtraMenu":this.ExtraMenu,"ExtrasQuantity":this.ExtrasQuantity,"SidesMenu":this.SidesMenu,"SidesQuantity":this.SidesQuantity,"TotalPrice":this.TotalPrice }
-    
-    console.log(list);
-     this.CartList.push(list);
-    // console.log(this.CartList);
+    // this.TotalPrice=35;
     this.MQunitity = 1;
-    this.SidesQuantity =1;
+      this.SidesQuantity =1;
     this.ExtrasQuantity = 1;
+
+
+    console.log(this.City)
+    console.log(this.Vendor)
+    console.log(this.MealType)
+    console.log(this.ExtraMenu);
+    console.log(this.SidesMenu)
+      if(this.City == undefined || this.City == null){
+        swal.fire('Please Select City');
+      }else if(this.Vendor == undefined || this.Vendor == null){
+        swal.fire('Please Select Vendor');
+      }else if(this.MealType == undefined || this.MealType == null){
+        swal.fire('Please Select MealType');
+      }
+      else 
+      {
+        if(this.SidesMenu == undefined){
+          this.SidesQuantity = 0;
+        }
+
+        if(this.ExtraMenu == undefined){
+          this.ExtrasQuantity = 0;
+        }
+
+        console.log(this.MQunitity)
+        this.TotalPrice = (this.MQunitity*35) + (this.ExtrasQuantity * 10) + (this.SidesQuantity * 15);
+        var list = {"City":this.City,"MealType":this.MealType,"MQunitity":this.MQunitity,"ExtraMenu":this.ExtraMenu,"ExtrasQuantity":this.ExtrasQuantity,"SidesMenu":this.SidesMenu,"SidesQuantity":this.SidesQuantity,"TotalPrice":this.TotalPrice }
+        this.CartList.push(list);
+      }
+    
+       
+      
+      
+      // console.log(this.CartList);
+  
     // this.MealType='Select Menu';
     // this.Vendor = 'SelectVendor';
     // this.City='City';
@@ -92,21 +123,21 @@ export class OrderMenuComponent implements OnInit {
 
   }
 
-  onMealQuntity(index){
-  
-     this.CartList[index].TotalPrice = this.CartList[index].MQunitity * this.TotalPrice + this.ExtraMenuprice;
+  onMealQuntity(index, value){
+    this.MQunitity = parseFloat(value);
+    this.CartList[index].TotalPrice = (this.MQunitity*35) + (this.SidesQuantity*15) + (this.ExtrasQuantity*10);
     
   }
 
-  onExtrasQuntity(index){
-    
-     this.ExtraMenuprice = this.ExtraMenuChapatiPrice * this.CartList[index].ExtrasQuantity-this.ExtraMenuChapatiPrice ;
-     console.log(this.ExtraMenuprice)
-     this.onMealQuntity(index); 
+  onExtrasQuntity(index, value){
+      console.log(value);
+      this.ExtrasQuantity = parseFloat(value);
+      this.CartList[index].TotalPrice =  (this.MQunitity*35) + (this.SidesQuantity*15) + (this.ExtrasQuantity*10);
   }
 
-  onSidesQuantity(index){
-
+  onSidesQuantity(index, value){
+    this.SidesQuantity = parseFloat(value);
+    this.CartList[index].TotalPrice =  (this.MQunitity*35) + (this.SidesQuantity*15) + (this.ExtrasQuantity*10);
   }
 
   onCheckout(){

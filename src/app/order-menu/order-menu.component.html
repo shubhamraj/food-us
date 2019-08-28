@@ -144,7 +144,7 @@
                         </select>
                         <span>{{list.MealType}}</span>
                       </td>
-                      <td><input type="number" name="quantity" min="1" max="5" [(ngModel)]="list.MQunitity" style="border: solid 1px;width: 40%; margin-left: 20px;" (change)="onMealQuntity(i)"></td>
+                      <td><input type="number" name="quantity" min="1" max="5" [(ngModel)]="list.MQunitity" style="border: solid 1px;width: 40%; margin-left: 20px;" (change)="onMealQuntity(i, $event.target.value)"></td>
                       <td>
 
                         <select class=""   style="width: 80px;"  [(ngModel)]="ExtraMenu" required>
@@ -154,7 +154,7 @@
                         </select>
                         <span>{{list.ExtraMenu}}</span>
                       </td>
-                      <td><input type="number" name="quantity" min="1" max="5" [(ngModel)]="list.ExtrasQuantity" style="border: solid 1px;width: 40%;margin-left: 20px;" (change)="onExtrasQuntity(i)"></td>
+                      <td><input type="number" *ngIf="ExtraMenu != undefined" name="quantity" min="1" max="5" [(ngModel)]="list.ExtrasQuantity" style="border: solid 1px;width: 40%;margin-left: 20px;" (change)="onExtrasQuntity(i, $event.target.value)"></td>
                       <td>
                         <select class=""  style="width: 80px;"  [(ngModel)]="SidesMenu" >
                             <option selected  disabled [value]="Sides">Sides</option>
@@ -163,7 +163,7 @@
                         </select>
                         <span>{{list.SidesMenu}}</span>
                       </td>
-                      <td><input type="number" name="quantity" min="1" max="5" [(ngModel)]="list.SidesQuantity" style="border: solid 1px;width: 40%; margin-left: 10px;" (change)="onSidesQuantity(i)"></td>
+                      <td><input type="number" *ngIf="SidesMenu != undefined" name="quantity" min="1" max="5" [(ngModel)]="list.SidesQuantity" style="border: solid 1px;width: 40%; margin-left: 10px;" (change)="onSidesQuantity(i, $event.target.value)"></td>
                      
                       <td>$ {{list.TotalPrice}}</td>
                       <td>
@@ -172,7 +172,7 @@
                       <i class="fa fa-pencil fa-lg edit" aria-hidden="true" style="color: darkgoldenrod" (click)="onEditRow(i)"></i>         
                       <i class="fa fa-arrow-circle-o-down fa-lg save" aria-hidden="true" style="color: darkgoldenrod" (click)="onSaverow(i)"></i>              
                         <i class="fa fa-trash fa-lg" aria-hidden="true" style="margin-left: 10px; color: brown" (click)="onRemoveItems(i)"></i>
-                    </td>
+                    </td> 
                   </tr>
               </tbody>
             </table>
