@@ -13,11 +13,11 @@ export class DashboardComponent implements OnInit {
   loadAPI: Promise<any>;
 
   constructor(private router: Router) {
-    this.loadAPI = new Promise((resolve) => {
-      this.loadScript();
-      resolve(true);
+  //   this.loadAPI = new Promise((resolve) => {
+  //     this.loadScript();
+  //     resolve(true);
      
-  });
+  // });
 
    }
 
@@ -50,8 +50,12 @@ export class DashboardComponent implements OnInit {
  
 
   ngOnInit() {
+  //   this.loadAPI = new Promise((resolve) => {
+  //     this.loadScript();
+  //     resolve(true);
+  // });
     this.onAnimation();
- 
+    
   }
 
   onOrderMenu(){
