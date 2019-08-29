@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
   templateUrl: './order-menu.component.html',
   styleUrls: ['./order-menu.component.css']
 })
+
+
 export class OrderMenuComponent implements OnInit {
   TodayDate:any
   CartList:any=[];
@@ -31,38 +33,59 @@ export class OrderMenuComponent implements OnInit {
   Extras:any;
   Sides:any;
 
-  constructor(private router: Router) { }
+  CheckoutCart:any=0;
+  CartProduct:any=[];
+  GrandTotal:any=0;
+
+
+  constructor(private router: Router) { 
+
+  }
 
   ngOnInit() { 
    
+    var tempgrandtotoal = 0;
     this.ExtraMenuChapatiPrice =10;
     this.ExtraMenuRotiPrice = 15;
     this.TodayDate = new Date();
     if(JSON.parse(localStorage.getItem('CartList')) != null){
       this.CartList =   JSON.parse(localStorage.getItem('CartList'));
+
     }
    
+    this.CartProduct = this.CartList; 
+ 
   }
 
   AddCart(){
  
-    // this.TotalPrice=35;
-    this.MQunitity = 1;
-      this.SidesQuantity =1;
-    this.ExtrasQuantity = 1;
 
-
-    console.log(this.City)
-    console.log(this.Vendor)
-    console.log(this.MealType)
-    console.log(this.ExtraMenu);
-    console.log(this.SidesMenu)
+    var tempgrandtotoal = 0;
       if(this.City == undefined || this.City == null){
-        swal.fire('Please Select City');
+    
+
+        Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Please Select City!',
+          footer: '<a href>Why do I have this issue?</a>'
+        })
+
+
       }else if(this.Vendor == undefined || this.Vendor == null){
-        swal.fire('Please Select Vendor');
+        Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Please Select Vendor!',
+          footer: '<a href>Why do I have this issue?</a>'
+        })
       }else if(this.MealType == undefined || this.MealType == null){
-        swal.fire('Please Select MealType');
+        Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Please Select MealType!',
+          footer: '<a href>Why do I have this issue?</a>'
+        })
       }
       else 
       {
@@ -74,27 +97,49 @@ export class OrderMenuComponent implements OnInit {
           this.ExtrasQuantity = 0;
         }
 
-        console.log(this.MQunitity)
         this.TotalPrice = (this.MQunitity*35) + (this.ExtrasQuantity * 10) + (this.SidesQuantity * 15);
         var list = {"City":this.City,"MealType":this.MealType,"MQunitity":this.MQunitity,"ExtraMenu":this.ExtraMenu,"ExtrasQuantity":this.ExtrasQuantity,"SidesMenu":this.SidesMenu,"SidesQuantity":this.SidesQuantity,"TotalPrice":this.TotalPrice }
         this.CartList.push(list);
       }
     
-       
-      
-      
-      // console.log(this.CartList);
-  
-    // this.MealType='Select Menu';
-    // this.Vendor = 'SelectVendor';
-    // this.City='City';
-    // this.ExtraMenu='Extras';
-    // this.SidesMenu='Sides';
+     
+      this.CheckoutCart = this.CartList.lenght;
+      this.CartProduct = this.CartList; 
     localStorage.setItem('CartList',JSON.stringify(this.CartList));
+
   }
 
+
+
+  onMealQuntity(index, value){
+    this.MQunitity = parseFloat(value);
+    this.CartList[index].TotalPrice = (this.MQunitity*35) + (this.SidesQuantity*15) + (this.ExtrasQuantity*10);
+    console.log()
+  }
+
+  onExtrasQuntity(index, value){
+      console.log(value);
+      this.ExtrasQuantity = parseFloat(value);
+      this.CartList[index].TotalPrice =  (this.MQunitity*35) + (this.SidesQuantity*15) + (this.ExtrasQuantity*10);
+  }
+
+  onSidesQuantity(index, value){
+    this.SidesQuantity = parseFloat(value);
+    this.CartList[index].TotalPrice =  (this.MQunitity*35) + (this.SidesQuantity*15) + (this.ExtrasQuantity*10);
+  }
+
+  onCheckout(){
+      var tempgrandtotoal = 0;
+    
+    for(let i=0; i<this.CartList.length;i++){
+      tempgrandtotoal =  this.CartList[i].TotalPrice + tempgrandtotoal;
+   }
+   this.GrandTotal = tempgrandtotoal;
+  }
+
+
+
   onEditRow(index){
-    console.log(index);
     var _rowNum = 'row-'+index;
     $('.'+_rowNum).removeClass('hide-input').addClass('hide-span');
     // $('.'+_rowNum).tog
@@ -128,30 +173,12 @@ export class OrderMenuComponent implements OnInit {
 
   }
 
-  onMealQuntity(index, value){
-    this.MQunitity = parseFloat(value);
-    this.CartList[index].TotalPrice = (this.MQunitity*35) + (this.SidesQuantity*15) + (this.ExtrasQuantity*10);
-    
+  CheckoutSubmit(){
+    $('#DemoModal').removeClass('in show opct-low');
+    this.router.navigate(['checkout']);
+  
   }
 
-  onExtrasQuntity(index, value){
-      console.log(value);
-      this.ExtrasQuantity = parseFloat(value);
-      this.CartList[index].TotalPrice =  (this.MQunitity*35) + (this.SidesQuantity*15) + (this.ExtrasQuantity*10);
-  }
-
-  onSidesQuantity(index, value){
-    this.SidesQuantity = parseFloat(value);
-    this.CartList[index].TotalPrice =  (this.MQunitity*35) + (this.SidesQuantity*15) + (this.ExtrasQuantity*10);
-  }
-
-  onCheckout(){
-
-  }
-
-  onSubmit(){
-     this.router.navigate(['checkout']);
-  }
 
 
 

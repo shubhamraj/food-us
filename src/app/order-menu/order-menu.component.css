@@ -473,6 +473,28 @@ display: none;
 display: none;
 }
 
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container-p {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+span.price-p {
+  float: right;
+  color: grey;
+}
+
+.demo-p{
+  padding: 50px;
+}
+
 /* .hide-input input,
 .hide-input select,
 .hide-input .search,
