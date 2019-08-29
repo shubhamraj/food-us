@@ -25,6 +25,11 @@ export class OrderMenuComponent implements OnInit {
   ExtraMenuprice:any=0;
   ExtraMenuChapatiPrice:any;
   ExtraMenuRotiPrice:any;
+  SelectVendor:any;
+  Menu:any;
+  Extras:any;
+  Sides:any;
+
   constructor(private router: Router) { }
 
   ngOnInit() { 

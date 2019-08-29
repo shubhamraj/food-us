@@ -26,7 +26,7 @@
 
     <div class="col-lg-8">
         <select class="col-sm browser-default custom-select custom-select-md" style="margin-top: 30px" [(ngModel)]="MealType" required>
-            <option  disabled selected [value]="Menu">Select Menu</option>
+            <option  [disabled] selected [value]="Menu">Select Menu</option>
             <option >Full Meal</option>
             <option >Meal</option>
           </select>
@@ -48,7 +48,7 @@
 
       <div class="col-lg-8">
           <select class="col-sm browser-default custom-select custom-select-md"   [(ngModel)]="ExtraMenu" required>
-              <option selected disabled [value]="Extras">Extras</option>
+              <option selected [disabled] [value]="Extras">Extras</option>
               <option>Chapati</option>
               <option>Rotu</option>
             </select>
@@ -68,7 +68,7 @@
       
       <div class="col-lg-8">
           <select class="col-lg browser-default custom-select custom-select-md" style="margin-top: 30px"   [(ngModel)]="SidesMenu" >
-              <option selected  disabled [value]="Sides">Sides</option>
+              <option selected  [disabled] [value]="Sides">Sides</option>
               <option >etc 1</option>
               <option >etc 2</option>
             </select>

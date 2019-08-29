@@ -16,7 +16,7 @@ export class AddMenuComponent implements OnInit {
   SidesMenu:any;
   Qunitity:any;
   Price:any;
-
+  Extras:any;
   constructor(private router: Router) { }
 
   ngOnInit() {
